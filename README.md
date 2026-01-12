@@ -123,8 +123,19 @@ conversation-evals-dashboard/
 ├── README.md          # This file - project overview
 ├── SETUP.md          # Detailed setup instructions
 ├── SCOREBOARD.md     # Scoreboard setup and troubleshooting guide
-└── Code.gs           # Apps Script code to add to Google Sheets
+├── Code.gs           # Apps Script code to add to Google Sheets
+└── skill-creator/    # Claude Code skill for creating custom skills
+    └── SKILL.md      # Skill instructions and templates
 ```
+
+## Bonus: Skill-Creator Skill
+
+This repository includes a Claude Code skill for creating custom skills! The `skill-creator/` directory contains a complete guide for building Claude Code skills with templates, best practices, and examples.
+
+To use it:
+1. Copy the `skill-creator` folder to your Claude skills directory (`~/.claude/skills/` or `.claude/skills/`)
+2. Ask Claude to help you create a new skill
+3. Claude will use the templates and best practices from this skill
 
 ## License
 
