@@ -71,6 +71,7 @@ OpenAI requires a payment method to use the API:
    - Column G: Criteria 5 Score
    - Column H: Total Score
    - Column I: Rank
+   - Column J: Pass/Fail (optional)
 
 ---
 
@@ -175,14 +176,103 @@ In cell D2, enter:
 
 Repeat for all 5 criteria in columns C through G.
 
-### 5.3 Calculate Total Score
+### 5.3 Set Up Pass/Fail Evaluation (Optional)
+
+You can set up pass/fail criteria in addition to numerical scores, or instead of them. There are two approaches:
+
+#### Option A: Pass/Fail Based on Score Thresholds
+
+If you're using numerical scores (1-10), you can convert them to PASS/FAIL based on thresholds.
+
+**Example: Individual criterion pass/fail**
+
+In cell J2 (assuming Helpfulness score is in C2), enter:
+```
+=IF(C2>=7, "PASS", "FAIL")
+```
+
+This marks the criterion as PASS if the score is 7 or higher.
+
+**Example: Overall pass/fail based on total score**
+
+In column J2 (assuming total score is in H2), enter:
+```
+=IF(H2>=35, "PASS", "FAIL")
+```
+
+This marks the entire conversation as PASS if the total score is 35+ out of 50.
+
+**Example: Pass requires ALL criteria to meet threshold**
+
+```
+=IF(AND(C2>=7, D2>=7, E2>=7, F2>=7, G2>=7), "PASS", "FAIL")
+```
+
+This only passes if ALL five criteria score 7 or higher.
+
+#### Option B: Ask AI Directly for Pass/Fail
+
+You can ask the AI to make a binary pass/fail decision directly.
+
+**Example for a specific criterion:**
+
+In cell C2, enter:
+```
+=ASK_AI("Does this conversation demonstrate adequate helpfulness? Answer only PASS or FAIL.", B2)
+```
+
+**Example for overall quality:**
+
+In cell J2, enter:
+```
+=ASK_AI("Evaluate this conversation for quality. Does it meet professional standards for customer support? Answer only PASS or FAIL.", B2)
+```
+
+**Example with detailed criteria:**
+
+```
+=ASK_AI("Does this conversation meet these requirements: 1) Addresses customer concern, 2) Professional tone, 3) Clear communication, 4) Offers solution. Answer only PASS or FAIL.", B2)
+```
+
+#### Option C: Hybrid Approach
+
+Combine scoring and pass/fail for comprehensive evaluation:
+
+- **Columns C-G**: Numerical scores (1-10) for each criterion
+- **Column H**: Total score
+- **Column I**: Overall PASS/FAIL based on total score
+- **Column J**: AI-generated PASS/FAIL with reasoning
+
+**Example for Column J:**
+
+```
+=ASK_AI("Review this conversation and determine if it PASSES quality standards. Respond with 'PASS' or 'FAIL' followed by a brief reason.", B2)
+```
+
+This gives you both quantitative data and qualitative feedback.
+
+#### Recommended Thresholds
+
+Common pass/fail thresholds for 1-10 scales:
+
+- **Strict**: 8+ to pass (80%)
+- **Standard**: 7+ to pass (70%)
+- **Lenient**: 6+ to pass (60%)
+
+For total scores (out of 50 with 5 criteria):
+
+- **Strict**: 40+ to pass (all criteria averaging 8+)
+- **Standard**: 35+ to pass (all criteria averaging 7+)
+- **Lenient**: 30+ to pass (all criteria averaging 6+)
+
+### 5.4 Calculate Total Score
 
 In column H (assuming scores are in C2:G2), enter:
 ```
 =SUM(C2:G2)
 ```
 
-### 5.4 Add Ranking
+### 5.5 Add Ranking
 
 In column I2, enter:
 ```
@@ -191,7 +281,7 @@ In column I2, enter:
 
 This will rank conversations with the highest score as #1.
 
-### 5.5 Copy Formulas Down
+### 5.6 Copy Formulas Down
 
 1. Select cells C2:I2
 2. Copy (Ctrl/Cmd + C)
