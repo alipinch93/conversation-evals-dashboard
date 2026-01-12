@@ -29,6 +29,8 @@ This dashboard allows you to:
 
 For detailed setup instructions, see [SETUP.md](SETUP.md)
 
+For scoreboard setup and troubleshooting, see [SCOREBOARD.md](SCOREBOARD.md)
+
 ## How to Use the Dashboard
 
 ### Basic Usage
@@ -118,8 +120,9 @@ If you encounter issues:
 
 ```
 conversation-evals-dashboard/
-├── README.md          # This file
+├── README.md          # This file - project overview
 ├── SETUP.md          # Detailed setup instructions
+├── SCOREBOARD.md     # Scoreboard setup and troubleshooting guide
 └── Code.gs           # Apps Script code to add to Google Sheets
 ```
 
