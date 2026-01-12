@@ -158,23 +158,44 @@ Decide what aspects you want to evaluate. Here are some examples:
 
 ### 5.2 Create Evaluation Formulas
 
-For each criterion, create a formula in your sheet. Assuming your conversation is in column B:
+For each criterion, create a formula in your sheet. Assuming your conversation is in column B, here are complete examples for all 5 criteria using the **Customer Support** evaluation set:
 
-**Example for Criterion 1 (Helpfulness):**
+**Criterion 1 - Helpfulness (Column C):**
 
 In cell C2, enter:
 ```
 =ASK_AI("Rate the helpfulness of this conversation on a scale of 1-10. Only respond with the number.", B2)
 ```
 
-**Example for Criterion 2 (Empathy):**
+**Criterion 2 - Empathy (Column D):**
 
 In cell D2, enter:
 ```
 =ASK_AI("Rate the empathy shown in this conversation on a scale of 1-10. Only respond with the number.", B2)
 ```
 
-Repeat for all 5 criteria in columns C through G.
+**Criterion 3 - Clarity (Column E):**
+
+In cell E2, enter:
+```
+=ASK_AI("Rate the clarity of communication in this conversation on a scale of 1-10. Only respond with the number.", B2)
+```
+
+**Criterion 4 - Resolution Quality (Column F):**
+
+In cell F2, enter:
+```
+=ASK_AI("Rate the quality of the solution/resolution provided in this conversation on a scale of 1-10. Only respond with the number.", B2)
+```
+
+**Criterion 5 - Response Time Appropriateness (Column G):**
+
+In cell G2, enter:
+```
+=ASK_AI("Based on the conversation flow, rate the appropriateness of response timing on a scale of 1-10. Only respond with the number.", B2)
+```
+
+**Tip:** Customize these prompts based on your specific evaluation criteria from section 5.1. The key is to be specific about what you're evaluating and request "Only respond with the number" to get clean numerical scores.
 
 ### 5.3 Set Up Pass/Fail Evaluation (Optional)
 
@@ -283,10 +304,16 @@ This will rank conversations with the highest score as #1.
 
 ### 5.6 Copy Formulas Down
 
-1. Select cells C2:I2
+Once you've set up all your formulas in row 2, copy them down to evaluate multiple conversations:
+
+1. Select the cells with your formulas:
+   - **Without pass/fail**: Select C2:I2 (scores, total, rank)
+   - **With pass/fail**: Select C2:J2 (scores, total, rank, pass/fail)
 2. Copy (Ctrl/Cmd + C)
-3. Select the range where you want to evaluate (e.g., C3:I100)
+3. Select the range where you want to evaluate (e.g., C3:I100 or C3:J100)
 4. Paste (Ctrl/Cmd + V)
+
+All formulas will automatically adjust to reference the correct row (B3, B4, etc.).
 
 ---
 
