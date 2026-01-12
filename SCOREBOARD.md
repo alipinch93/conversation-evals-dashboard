@@ -136,27 +136,27 @@ If your evaluation sheet is sorted by rank, you can just reference directly:
 
 ### 7. Individual Criterion Averages (Complete Set)
 
-**Cell B3 - Helpfulness Average:**
+**Cell B3 - Task Execution Average:**
 ```
 =IFERROR(ROUND(AVERAGEIF(Evaluations!C2:C100, ">0"), 2), 0)
 ```
 
-**Cell B4 - Empathy Average:**
+**Cell B4 - PII Concern Average:**
 ```
 =IFERROR(ROUND(AVERAGEIF(Evaluations!D2:D100, ">0"), 2), 0)
 ```
 
-**Cell B5 - Clarity Average:**
+**Cell B5 - Factual Accuracy Average:**
 ```
 =IFERROR(ROUND(AVERAGEIF(Evaluations!E2:E100, ">0"), 2), 0)
 ```
 
-**Cell B6 - Resolution Quality Average:**
+**Cell B6 - Policy Compliance Average:**
 ```
 =IFERROR(ROUND(AVERAGEIF(Evaluations!F2:F100, ">0"), 2), 0)
 ```
 
-**Cell B7 - Response Time Average:**
+**Cell B7 - Completeness Average:**
 ```
 =IFERROR(ROUND(AVERAGEIF(Evaluations!G2:G100, ">0"), 2), 0)
 ```
@@ -184,11 +184,11 @@ Here's a complete scoreboard layout you can copy:
 | A | B |
 |---|---|
 | **AVERAGE SCORES BY CRITERION** | |
-| Helpfulness | `=IFERROR(ROUND(AVERAGEIF(Evaluations!C2:C100, ">0"), 2), 0)` |
-| Empathy | `=IFERROR(ROUND(AVERAGEIF(Evaluations!D2:D100, ">0"), 2), 0)` |
-| Clarity | `=IFERROR(ROUND(AVERAGEIF(Evaluations!E2:E100, ">0"), 2), 0)` |
-| Resolution Quality | `=IFERROR(ROUND(AVERAGEIF(Evaluations!F2:F100, ">0"), 2), 0)` |
-| Response Time | `=IFERROR(ROUND(AVERAGEIF(Evaluations!G2:G100, ">0"), 2), 0)` |
+| Task Execution | `=IFERROR(ROUND(AVERAGEIF(Evaluations!C2:C100, ">0"), 2), 0)` |
+| PII Concern | `=IFERROR(ROUND(AVERAGEIF(Evaluations!D2:D100, ">0"), 2), 0)` |
+| Factual Accuracy | `=IFERROR(ROUND(AVERAGEIF(Evaluations!E2:E100, ">0"), 2), 0)` |
+| Policy Compliance | `=IFERROR(ROUND(AVERAGEIF(Evaluations!F2:F100, ">0"), 2), 0)` |
+| Completeness | `=IFERROR(ROUND(AVERAGEIF(Evaluations!G2:G100, ">0"), 2), 0)` |
 
 ### Section 3: Top Performers (Rows 20-26)
 

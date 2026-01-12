@@ -56,26 +56,26 @@ The core of this dashboard is a custom Google Sheets function that calls OpenAI'
 
 ```javascript
 // Simple evaluation
-=ASK_AI("Rate this conversation's helpfulness from 1-10", A2)
+=ASK_AI("Rate how well the task was executed in this conversation from 1-10", A2)
 
-// Detailed analysis with context
-=ASK_AI("Does this conversation show empathy? Answer YES or NO.", A2)
+// Binary compliance check
+=ASK_AI("Was PII handled properly in this conversation? Answer YES or NO.", A2)
 
-// Custom criteria
-=ASK_AI("On a scale of 1-10, how well does this address the user's concern?", A2)
+// Detailed criteria
+=ASK_AI("On a scale of 1-10, rate the factual accuracy of the information provided.", A2)
 ```
 
 ### Customizing Your 5 Evaluation Criteria
 
 Your dashboard should score conversations on 5 different criteria. Common examples include:
 
-1. **Helpfulness**: Does the response solve the user's problem?
-2. **Clarity**: Is the response clear and easy to understand?
-3. **Empathy**: Does it show understanding of the user's situation?
-4. **Accuracy**: Is the information provided correct?
-5. **Professionalism**: Is the tone appropriate and professional?
+1. **Task Execution**: Did the agent complete the requested task?
+2. **PII Concern**: Was personal identifiable information handled properly?
+3. **Factual Accuracy**: Is the information provided correct?
+4. **Policy Compliance**: Did the conversation follow company policies?
+5. **Completeness**: Was the response thorough and complete?
 
-You can customize these to fit your specific use case (e.g., sales, support, education, etc.)
+You can customize these to fit your specific use case (e.g., compliance, quality assurance, content moderation, etc.)
 
 ## Configuration
 

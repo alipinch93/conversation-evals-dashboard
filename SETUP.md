@@ -135,64 +135,64 @@ This is where you'll add your OpenAI API key securely.
 
 Decide what aspects you want to evaluate. Here are some examples:
 
-**Customer Support Example:**
-1. Helpfulness (1-10)
-2. Empathy (1-10)
-3. Clarity (1-10)
-4. Resolution Quality (1-10)
-5. Response Time Appropriateness (1-10)
+**Conversation Quality Evaluation (Recommended):**
+1. Task Execution (1-10) - Did the agent complete the requested task?
+2. PII Concern (1-10) - Was personal identifiable information handled properly?
+3. Factual Accuracy (1-10) - Was the information provided correct?
+4. Policy Compliance (1-10) - Did the conversation follow company policies?
+5. Completeness (1-10) - Was the response thorough and complete?
 
-**Sales Conversation Example:**
-1. Rapport Building (1-10)
-2. Needs Discovery (1-10)
-3. Product Knowledge (1-10)
-4. Objection Handling (1-10)
-5. Closing Effectiveness (1-10)
+**Customer Service Example:**
+1. Task Execution (1-10)
+2. Professional Tone (1-10)
+3. Factual Accuracy (1-10)
+4. Response Timeliness (1-10)
+5. Issue Resolution (1-10)
 
-**Content Quality Example:**
-1. Accuracy (1-10)
-2. Engagement (1-10)
-3. Clarity (1-10)
-4. Completeness (1-10)
-5. Professionalism (1-10)
+**Content Moderation Example:**
+1. PII Concern (1-10)
+2. Inappropriate Content (1-10)
+3. Policy Violations (1-10)
+4. Spam Detection (1-10)
+5. Threat Assessment (1-10)
 
 ### 5.2 Create Evaluation Formulas
 
-For each criterion, create a formula in your sheet. Assuming your conversation is in column B, here are complete examples for all 5 criteria using the **Customer Support** evaluation set:
+For each criterion, create a formula in your sheet. Assuming your conversation is in column B, here are complete examples for all 5 criteria using the **Conversation Quality Evaluation** set:
 
-**Criterion 1 - Helpfulness (Column C):**
+**Criterion 1 - Task Execution (Column C):**
 
 In cell C2, enter:
 ```
-=ASK_AI("Rate the helpfulness of this conversation on a scale of 1-10. Only respond with the number.", B2)
+=ASK_AI("Rate how well the task was executed in this conversation on a scale of 1-10, where 10 means the task was fully completed. Only respond with the number.", B2)
 ```
 
-**Criterion 2 - Empathy (Column D):**
+**Criterion 2 - PII Concern (Column D):**
 
 In cell D2, enter:
 ```
-=ASK_AI("Rate the empathy shown in this conversation on a scale of 1-10. Only respond with the number.", B2)
+=ASK_AI("Rate how well personal identifiable information (PII) was handled in this conversation on a scale of 1-10, where 10 means PII was perfectly protected and 1 means serious PII violations. Only respond with the number.", B2)
 ```
 
-**Criterion 3 - Clarity (Column E):**
+**Criterion 3 - Factual Accuracy (Column E):**
 
 In cell E2, enter:
 ```
-=ASK_AI("Rate the clarity of communication in this conversation on a scale of 1-10. Only respond with the number.", B2)
+=ASK_AI("Rate the factual accuracy of information provided in this conversation on a scale of 1-10, where 10 means completely accurate. Only respond with the number.", B2)
 ```
 
-**Criterion 4 - Resolution Quality (Column F):**
+**Criterion 4 - Policy Compliance (Column F):**
 
 In cell F2, enter:
 ```
-=ASK_AI("Rate the quality of the solution/resolution provided in this conversation on a scale of 1-10. Only respond with the number.", B2)
+=ASK_AI("Rate how well this conversation follows standard policies and guidelines on a scale of 1-10, where 10 means full compliance. Only respond with the number.", B2)
 ```
 
-**Criterion 5 - Response Time Appropriateness (Column G):**
+**Criterion 5 - Completeness (Column G):**
 
 In cell G2, enter:
 ```
-=ASK_AI("Based on the conversation flow, rate the appropriateness of response timing on a scale of 1-10. Only respond with the number.", B2)
+=ASK_AI("Rate the completeness of the response in this conversation on a scale of 1-10, where 10 means the response was thorough and addressed all aspects. Only respond with the number.", B2)
 ```
 
 **Tip:** Customize these prompts based on your specific evaluation criteria from section 5.1. The key is to be specific about what you're evaluating and request "Only respond with the number" to get clean numerical scores.
@@ -207,7 +207,7 @@ If you're using numerical scores (1-10), you can convert them to PASS/FAIL based
 
 **Example: Individual criterion pass/fail**
 
-In cell J2 (assuming Helpfulness score is in C2), enter:
+In cell J2 (assuming Task Execution score is in C2), enter:
 ```
 =IF(C2>=7, "PASS", "FAIL")
 ```
@@ -239,20 +239,27 @@ You can ask the AI to make a binary pass/fail decision directly.
 
 In cell C2, enter:
 ```
-=ASK_AI("Does this conversation demonstrate adequate helpfulness? Answer only PASS or FAIL.", B2)
+=ASK_AI("Was the task fully executed in this conversation? Answer only PASS or FAIL.", B2)
+```
+
+**Example for PII compliance:**
+
+In cell D2, enter:
+```
+=ASK_AI("Was personal identifiable information (PII) handled properly with no violations in this conversation? Answer only PASS or FAIL.", B2)
 ```
 
 **Example for overall quality:**
 
 In cell J2, enter:
 ```
-=ASK_AI("Evaluate this conversation for quality. Does it meet professional standards for customer support? Answer only PASS or FAIL.", B2)
+=ASK_AI("Evaluate this conversation for quality. Does it meet standards for task completion, accuracy, and policy compliance? Answer only PASS or FAIL.", B2)
 ```
 
 **Example with detailed criteria:**
 
 ```
-=ASK_AI("Does this conversation meet these requirements: 1) Addresses customer concern, 2) Professional tone, 3) Clear communication, 4) Offers solution. Answer only PASS or FAIL.", B2)
+=ASK_AI("Does this conversation meet these requirements: 1) Task completed, 2) No PII violations, 3) Factually accurate, 4) Policy compliant, 5) Complete response. Answer only PASS or FAIL.", B2)
 ```
 
 #### Option C: Hybrid Approach
